@@ -1,0 +1,136 @@
+<%- include('partials/head') %> <%- include('partials/header') %>
+
+    <!-- Main content for the Create page -->
+    <form action="" class="create-form"></form>
+    <main class="p-1">
+      <figure class="create-recipe-image">
+        <img
+          src="https://images.unsplash.com/photo-1650092194571-d3c1534562be?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+          class="square-media create-image" alt="there should be a image here" id="create-image" />
+
+        <input type="file" class="create-image-button create-button" id="create-add-button" />
+      </figure>
+
+
+      <h5 class="mb-0 create-label">Name</h5>
+      <textarea class="create-input create-text-area" name="Recipe Name" id="create-name" placeholder="Name" autofocus
+        required></textarea>
+
+      <h5 class="mb-0 create-label">Cooking Item</h5>
+      <select id="create-item-list" class="create-input">
+        <option value="Stovetop">Stovetop</option>
+        <option value="Air Fryer">Air Fryer</option>
+        <option value="Rice Cooker">Rice Cooker</option>
+        <option value="Oven">Oven</option>
+        <option value="Toaster">Toaster</option>
+        <option value="Microwave">Microwave</option>
+
+      </select>
+
+      <h5 class="mb-0 create-label">Communities</h5>
+      <div id="create-community-list" class="create-input">
+
+        <template id="create-community-template">
+          <label class="create-community-label">
+            <input type="checkbox" name="create-community-check" class="create-community-option" value=""></option>
+          </label>
+          </br>
+        </template>
+
+      </div>
+
+      <h5 class="mb-0 create-label">Description</h5>
+      <textarea class="create-input create-text-area" name="Recipe Description" id="create-description"
+        placeholder="Description" required></textarea>
+
+      <h5 class="mb-0 create-label">Dificulty</h5>
+      <div>
+        <input type="radio" id="create-dificulty-easy" class="btn-check create-input" name="create-dificulty"
+          value="Easy" checked>
+        <label class="btn btn-outline-success" for="create-dificulty-easy">Easy</label>
+
+        <input type="radio" id="create-dificulty-medium" class="btn-check create-input" name="create-dificulty"
+          value="Medium">
+        <label class="btn btn-outline-success" for="create-dificulty-medium">Medium</label>
+
+        <input type="radio" id="create-dificulty-hard" class="btn-check create-input" name="create-dificulty"
+          value="Hard">
+        <label class="btn btn-outline-success" for="create-dificulty-hard">Hard</label>
+
+      </div>
+
+      <h5 class="mb-0 create-label">Prep Time</h5>
+      <div>
+        <input type="radio" id="create-prep-time1" class="btn-check create-input" name="create-prep-time" value="5"
+          checked>
+        <label class="btn btn-outline-success" for="create-prep-time1">5 min</label>
+
+        <input type="radio" id="create-prep-time2" class="btn-check create-input" name="create-prep-time" value="10">
+        <label class="btn btn-outline-success" for="create-prep-time2">10 min</label>
+
+        <input type="radio" id="create-prep-time3" class="btn-check create-input" name="create-prep-time" value="15">
+        <label class="btn btn-outline-success" for="create-prep-time3">15 min</label>
+
+        <input type="radio" id="create-prep-time4" class="btn-check create-input" name="create-prep-time" value="30">
+        <label class="btn btn-outline-success" for="create-prep-time4">30 min</label>
+
+      </div>
+
+      <h5 class="mb-0 create-label">Cook Time</h5>
+      <div>
+        <input type="radio" id="create-cook-time1" class="btn-check create-input" name="create-cook-time" value="5"
+          checked>
+        <label class="btn btn-outline-success" for="create-cook-time1">5 min</label>
+
+        <input type="radio" id="create-cook-time2" class="btn-check create-input" name="create-cook-time" value="10">
+        <label class="btn btn-outline-success" for="create-cook-time2">10 min</label>
+
+        <input type="radio" id="create-cook-time3" class="btn-check create-input" name="create-cook-time" value="15">
+        <label class="btn btn-outline-success" for="create-cook-time3">15 min</label>
+
+        <input type="radio" id="create-cook-time4" class="btn-check create-input" name="create-cook-time" value="30">
+        <label class="btn btn-outline-success" for="create-cook-time4">30 min</label>
+
+      </div>
+
+      <h5 class="mb-0 create-label">Ingredients</h5>
+      <textarea class="create-input create-text-area" name="Recipe Ingredients" id="create-ingredients"
+        placeholder="Ingredients" required></textarea>
+
+      <h5 class="mb-0 create-label">Instructions</h5>
+      <textarea class="create-input create-text-area" name="Recipe Instructions" id="create-instructions"
+        placeholder="Instructions" required></textarea>
+
+
+
+      <input type="button" class="create-input create-button" value="Submit" id="create-submit" />
+      </form>
+    </main>
+    <!-- End of main content -->
+
+    <!-- This script runs only on this page -->
+    <script>
+      function resizeTextarea(textarea) {
+        textarea.style.height = "auto";
+        textarea.style.height = textarea.scrollHeight + "px";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const textareas = document.querySelectorAll("textarea.create-text-area");
+
+        textareas.forEach((textarea) => {
+          // Initial resize
+          resizeTextarea(textarea);
+
+          // Resize on input
+          textarea.addEventListener("input", () => resizeTextarea(textarea));
+        });
+      });
+    </script>
+
+    <!-- create recipe functions -->
+    <script type="module" src="/js/createRecipe.js"></script>
+
+    <%- include('partials/navbar', {active: 'create' }) %> <%- include('partials/footer') %> <%-
+          include('partials/preview') %>
+          <%- include('partials/scripts') %>

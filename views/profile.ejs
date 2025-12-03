@@ -1,0 +1,47 @@
+<%- include('partials/head') %> <%- include('partials/header') %>
+
+<div class="d-flex flex-column px-1">
+  <header class="profile-info-container d-flex align-items-center p-3">
+    <img
+      src="/assets/images/profile-pic-placeholder.jpg"
+      id="profile-pic-profile"
+      class="profile-pic img-fluid rounded-circle profile-pic border rounded-2"
+      alt="Profile picture" />
+    <div class="ms-4">
+      <span
+        class="profile-title badge text-dark fs-5 rounded-pill px-3 py-2"
+        id="profile-title">
+      </span>
+      <div class="profile-names ms-2 mt-1">
+        <span class="profile-first-name fs-5" id="profile-full-name"></span>
+      </div>
+      <p class="description ms-2 mb-2 fs-6" id="profile-bio"></p>
+    </div>
+  </header>
+
+  <main class="d-flex flex-column flex-grow-1">
+    <div class="row g-2 mb-2">
+      <div class="profile-grid-btn col-6">
+        <a href="#" id="profile-grid-btn" class="btn btn-custom d-block w-100">
+          <i class="bi bi-grid-3x3"></i>
+        </a>
+      </div>
+      <div class="community-btn col-6">
+        <a href="#" id="community-btn" class="btn btn-custom d-block w-100">
+          <i class="bi bi-houses"></i>
+        </a>
+      </div>
+    </div>
+
+    <hr class="mt-0 mb-2" />
+
+    <div class="post-container p-2">
+      <div id="post-content-grid" class="row g-1"></div>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="/js/profile.js"></script>
+<%- include('partials/navbar', {active: 'profile'}) %> <%-
+include('partials/footer') %> <%- include('partials/preview') %> <%-
+include('partials/scripts') %>

@@ -1,0 +1,78 @@
+<%- include('partials/head') %> <%- include('partials/header') %>
+
+<main class="container py-3">
+  <h2 class="mb-3">Editing Profile...</h2>
+
+  <form id="edit-profile-form">
+    <div class="profile-preview-img mb-4 text-center">
+      <img
+        id="profile-preview-img"
+        src="/assets/images/profile-pic-placeholder.jpg"
+        class="img-fluid rounded-circle border"
+        alt="Profile Preview" />
+    </div>
+
+    <div class="profile-image-upload mb-3">
+      <label for="profileFile" class="form-label">Upload New Picture</label>
+      <input
+        class="form-control"
+        type="file"
+        id="profileFile"
+        accept="image/*" />
+    </div>
+
+    <div class="mb-3">
+      <label for="profileUsername" class="edit-username form-label"
+        >Username<span class="required">*</span></label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="profile-username"
+        placeholder="Enter a username"
+        required />
+    </div>
+
+    <div class="mb-3">
+      <label for="profileFirstName" class="edit-first-name form-label"
+        >First Name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="profile-first-name"
+        placeholder="First name..." />
+    </div>
+
+    <div class="mb-3">
+      <label for="profileLastName" class="edit-last-name form-label"
+        >Last Name</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        id="profile-last-name"
+        placeholder="Last name..." />
+    </div>
+
+    <div class="mb-3">
+      <label for="profileBio" class="edit-bio form-label">Bio</label>
+      <textarea
+        class="form-control"
+        id="profile-bio"
+        rows="3"
+        placeholder="Biography..."></textarea>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-custom">Save Changes</button>
+      <a href="/profile" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+  </form>
+
+  <div id="form-message" class="mt-3"></div>
+</main>
+
+<script type="module" src="/js/editProfile.js"></script>
+<%- include('partials/navbar', {active: 'profile'}) %> <%-
+include('partials/footer') %> <%- include('partials/scripts') %>

@@ -1,0 +1,6 @@
+.DS_Store
+*.logs
+node_modules/
+.vscode/
+.env
+bby14-7d9e9-firebase-adminsdk-fbsvc-3173683853.json
